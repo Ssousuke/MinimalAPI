@@ -1,13 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using minimalAPI.Models;
 
-namespace minimalAPI.Data
-{
-    public class AppDataContext : DbContext
-    {
-        public DbSet<Todo> todos { get; set; }
+namespace minimalAPI.Data;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite("DataSource=app.db; Cache=Shared");
+public class AppDataContext : DbContext
+{
+    public DbSet<Todo> Todos { get; set; }
+
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+    {
+        options.UseSqlite("DataSource=app.db; Cache=Shared");
     }
 }
